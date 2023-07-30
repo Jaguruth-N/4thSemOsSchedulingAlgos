@@ -67,8 +67,11 @@ void fcfs(Process processes[], int n)
     printf("\nGantt chart\n");  
     for(int i = 0; i<n; i++)
     {
-        if(processes[i].arrivalTime > elapsedTime) // to take care of the idle time
+        if(processes[i].arrivalTime > elapsedTime){// to take care of the idle time
+          int temp=elapsedtime;
           elapsedTime = elapsedTime + (processes[i].arrivalTime - elapsedTime);
+          printf("|(%d) I (%d)",temp,elapsedtime);                 //To print idle time
+}
         
         int temp = elapsedTime; 
         processes[i].responseTime = elapsedTime - processes[i].arrivalTime;  
